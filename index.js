@@ -23,7 +23,7 @@ module.exports = function(bot, module) {
 		var regex = new RegExp('(?:^|\\s)(' + words.join('|') + ')(?:\\s|\\.|\\?|!|$)', 'i');
 		module.addTrigger(regex, function(request) {
 			request.reply = 'You have been fined one credit for a violation of the verbal morality statute.';
-			if (request.usernick) {
+			if (request.multiuser && request.usernick) {
 				request.reply = request.usernick + ': ' + request.reply;
 			}
 			bot.respond(request);
