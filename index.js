@@ -1,6 +1,4 @@
-module.exports = function(bot) {
-
-	var module = new bot.Module();
+module.exports = function(bot, module) {
 
 	module.load = function() {
 		var words = [
@@ -32,5 +30,4 @@ module.exports = function(bot) {
 		});
 	};
 
-	return module;
 };
