@@ -19,10 +19,13 @@ module.exports = function(bot, module) {
 		'shit',
 		'wank'
 	];
-	var regex = new RegExp('(?:^|\\s)(' + words.join('|') + ')(?:\\s|\\.|\\?|!|$)', 'i');
-	module.addTrigger(regex, function(request) {
-		request.reply = 'You have been fined one credit for a violation of the verbal morality statute.';
-		bot.reply(request);
+
+	module.addTrigger({
+		match: new RegExp('(?:^|\\s)(' + words.join('|') + ')(?:\\s|\\.|\\?|!|$)', 'i'),
+		func: function(request) {
+			request.reply = 'You have been fined one credit for a violation of the verbal morality statute.';
+			bot.reply(request);
+		}
 	});
 
 };
